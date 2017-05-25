@@ -1,0 +1,42 @@
+Register
+--------------------------------------------------
+AX	:	Accumulator Register ( AH 8 Bit / AL Bit )
+BX	:	Base Register( BH 8 Bit / BL Bit )
+CX	:	Counter Register( CH 8 Bit / CL Bit )
+DX	:	Data Register( DH 8 Bit / DL Bit )
+SI	:	Source Index
+DI	:	Destination Index
+BP	:	Base Pointer
+SP	:	Stack Pointer
+
+Segment
+--------------------------------------------------
+CS	:	Code Segment
+DS	:	Data Segment
+ES	:	Exstra Segment
+SS	:	Stack Segment
+
+IP	:	Instraction Pointer
+FP	:	Flag Pointer
+
+Memory Access
+--------------------------------------------------
+[BX], [SI], [DI], [BP]
+TRANSFER
+--------------------------------------------------
+MOV     :   Move (copy)             -   MOV Dest,Source Dest:=Source.
+
+ARITHMETIC
+--------------------------------------------------
+ADD     :   Add                     -   ADD Dest,Source Dest:=Dest+Source.
+
+LOGIC
+--------------------------------------------------
+AND     :   Logical and             -   AND Dest,Source Dest:=DestÙSource.
+
+JUMPS (flags remain unchanged)
+--------------------------------------------------
+CALL    :   Call subroutine         -   CALL Proc.
+JMP     :   Jump                    -   JMP Dest.
+JE      :   Jump if Equal.          -   JE Dest (º JZ)                 
+JZ      :   Jump if Zero.           -   JZ Dest (º JE).

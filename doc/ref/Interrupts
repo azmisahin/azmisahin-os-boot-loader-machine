@@ -1,0 +1,54 @@
+INT 10h Video Services.
+    AH  00h Set Video Mode.
+        AL  00h Text mode. 40x25. 16 colors. 8 pages.
+        AL  03h Text mode. 80x25. 16 colors. 8 pages.
+        AL  13h Graphical mode. 40x25. 256 colors. 320x200 pixels. 1 page.
+        
+    AH  02h Set Cursor Position.
+        DH  Row.
+        DL  Column.
+        BH  Page Number.
+        
+    AH  05h Set Current Display Page.
+        AL  Display page (the range of valid values depends on the current video mode--see Function 00h)Outputs.
+        
+    AX  1003h   Toggle intensity/blinking.
+        BL  0  Enable intensive colors.
+        BL  1  Enable blinking (not supported by the emulator and windows command.
+            BH  0  To avoid problems on some adapters.
+    BX  0  Disable blinking.
+    
+    AH  0Eh Teletype output.
+        AL  Character to write.
+    
+INT 16h Keyboard.
+    AH  00h Get keystroke from keyboard (no echo).
+        AH  BIOS scan code.
+        AL  ASCII character.
+    AH  01h Check for keystroke in the keyboard buffer. 
+        ZF  1   If keystroke is not available.
+        ZF  0   If keystroke available.
+        AH  BIOS scan code.
+        AL  ASCII character.
+    AH  02h Set Cursor Position.
+        BH  Display page (valid only in text modes--use 00h for graphics modes).
+        DH  Row (00h is top row).
+        DL  Column (00h is leftmost column).
+    AH  05h Set Current Display Page.
+        AL  Display page (the range of valid values depends on the current video mode--see Function 00h)
+        BH  Display page (valid only in text modes--use 00h for graphics modes).        
+
+INT 33h Mouse Driver
+    AX  0000    Mouse ininialization.
+    AX  0001    Show mouse pointer.
+    AX  0002    Hide visible mouse pointer.
+    AX  0003    Get mouse position and status of its buttons. 
+        BX  1   If left button is down
+        BX  2   If right button is down
+        BX  3   If both buttons are down.
+            CX  x.
+            DX  y.
+    AX  0FFFFh  if successful.
+    BX  number of mouse buttons.
+    
+INT 19h System reboot.

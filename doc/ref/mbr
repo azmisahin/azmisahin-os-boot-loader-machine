@@ -1,0 +1,9 @@
+Offset	Size (bytes)	Description
+0	436		MBR Bootstrap (flat binary executable code)
+0x1b4	10		Optional "unique" disk ID1
+0x1be	64		MBR Partition Table, with 4 entries (below)
+0x1be	16		First partition table entry
+0x1ce	16		Second partition table entry
+0x1de	16		Third partition table entry
+0x1ee	16		Fourth partition table entry
+0x1fe	2		(0x55, 0xAA) "Valid bootsector" signature bytes
