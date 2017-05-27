@@ -21,10 +21,12 @@ FP	:	Flag Pointer
 
 Memory Access
 --------------------------------------------------
-[BX], [SI], [DI], [BP]
+[BX], [SI], [DI], [BP] 
+
 TRANSFER
 --------------------------------------------------
-MOV     :   Move (copy)             -   MOV Dest,Source Dest:=Source.
+MOV     :	Move (copy)             -   MOV Dest,Source Dest:=Source.
+LOADSB	:	Load String
 
 ARITHMETIC
 --------------------------------------------------
@@ -32,7 +34,23 @@ ADD     :   Add                     -   ADD Dest,Source Dest:=Dest+Source.
 
 LOGIC
 --------------------------------------------------
-AND     :   Logical and             -   AND Dest,Source Dest:=DestÙSource.
+AND     :   Logical and
+            1 & 1 = 1
+            1 & 0 = 0
+            0 & 1 = 0
+            0 & 0 = 0 
+
+OR      :   Logical OR
+            1 | 1 = 1
+            1 | 0 = 1
+            0 | 1 = 1
+            0 | 0 = 0
+            
+XOR     :   Logical OR
+            1 ^ 1 = 0
+            1 ^ 0 = 1
+            0 ^ 1 = 1
+            0 ^ 0 = 0           
 
 JUMPS (flags remain unchanged)
 --------------------------------------------------

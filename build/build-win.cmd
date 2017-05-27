@@ -10,4 +10,5 @@ echo %bin% done.
 echo	==================================================
 echo	Build progress complated
 echo	--------------------------------------------------
+pause
 @echo on
